@@ -1,0 +1,696 @@
+body {
+    font-family: "Open Sans", sans-serif;
+    background-color: #f1f1f1;
+}
+
+nav.bg-light {
+    background-color: #ffffff !important;
+}
+
+#login-bgr {
+    background: url("../images/login_bgr.jpg") no-repeat center center;
+    background-size: cover;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 100;
+}
+
+#login-form-wrap {
+    position: fixed;
+    top: 50%;
+    left: 20%;
+    width: 280px;
+    margin-top: -200px;
+    background-color: #ffffff;
+    overflow: hidden;
+    z-index: 1000;
+    padding: 15px;
+}
+
+.login-logo-wrap img {
+    margin: 20px 0;
+    width: 250px;
+    vertical-align: middle;
+    border-style: none;
+    height: auto;
+}
+
+.login-title {
+    color: #26a9df;
+    font-size: 18px;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+#login input[type="text"], #login input[type="password"] {
+    width: 100%;
+    border: none;
+    padding: 15px;
+    font-size: 14px;
+    background-color: #ededed;
+    color: #333d46;
+}
+
+#login label {
+    padding: 0 15px;
+    font-size: 12px;
+    display: block;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+#login form {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.login-form-footer {
+    background-color: #323f48;
+    margin: 0 -15px -15px -15px;
+    text-align: center;
+    padding: 15px;
+}
+
+.login-form-footer a {
+    color: #26a9df;
+    font-size: 14px;
+}
+
+.login-failed, .login-success {
+    background-color: #f09601;
+    margin: 0 -15px;
+    color: #ffffff;
+    padding: 15px;
+    font-size: 11px;
+}
+
+.login-success {
+    background-color: #92ca0f;
+}
+
+.fp-title {
+    color: #26a9df;
+    font-size: 18px;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.fp-sent {
+    color: #ffffff;
+    font-size: 12px;
+    margin: 15px 0 30px 0;
+}
+
+#login input[type="email"] {
+    width: 100%;
+    border: 1px solid #ffffff;
+    padding: 15px;
+    font-size: 14px;
+    background-color: #323f48;
+    color: #ffffff;
+}
+
+#login label[for=user_login] {
+    color: #ffffff;
+}
+
+.fp-submit {
+    background-color: #26a9df;
+    border: none;
+    color: #ffffff;
+    padding: 15px 30px;
+    margin: 15px 0 15px 0;
+    font-size: 14px;
+}
+
+.login-form-footer img {
+    margin: 15px;
+}
+
+.pined-footer {
+    left: 0;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    z-index: 10000;
+}
+
+#copyright {
+    font-size: 12px;
+    line-height: 64px;
+    color: #ffffff;
+}
+
+.navbar {
+    padding-bottom: 6px;
+}
+
+#menu-main-menu {
+    margin: 0 auto;
+}
+
+.current-menu-item {
+    border-bottom: 3px solid #26a9df;
+}
+
+.cf-main-title {
+    margin: 40px 0;
+}
+
+.cf-panel {
+    background-color: #ffffff;
+    margin-bottom: 15px;
+}
+
+.cf-panel-h {
+    background-color: #323f48;
+    padding: 15px;
+}
+
+.cf-panel-h-title {
+    display: inline-block;
+    color: #23a9de;
+    font-size: 18px;
+    line-height: 30px;
+}
+
+.cf-panel-b {
+    padding: 15px;
+}
+
+.cf-datatable {
+    font-size: 14px;
+    border-bottom: 1px solid #dddddd !important;
+}
+
+.cf-datatable thead th {
+    color: #23a9de;
+    border-bottom: 1px solid #dddddd !important;
+}
+
+.cf-datatable tbody a {
+    text-decoration: none;
+    color: #323f48;
+    font-weight: bold;
+}
+
+.dataTables_paginate {
+    font-size: 12px;
+}
+
+#datatable-searchbar {
+    display: inline-block;
+    float: right;
+    margin: -5px;
+}
+
+#datatable-searchbar input[type=search] {
+    font-size: 14px;
+    padding: 5px 15px;
+    border: none;
+    height: 40px;
+}
+
+.cf-sm-c-icon, .cf-sm-m-icon {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+    border-radius: 50%;
+    vertical-align: middle;
+    background: #ef9701 url("../images/managers_s.png") no-repeat center center;
+    background-size: 16px 16px;
+}
+
+.cf-sm-c-icon {
+    background: #92ca0f url("../images/candidates_s.png") no-repeat center center;
+    background-size: 16px 16px;
+}
+
+.cf-lg-c-icon, .cf-lg-m-icon, .cf-lg-rd-icon, .cf-lg-pr-icon {
+    display: inline-block;
+    width: 64px;
+    height: 64px;
+    margin-right: 20px;
+    border-radius: 50%;
+    vertical-align: middle;
+    background: #ef9701 url("../images/managers_l.png") no-repeat center center;
+    background-size: 40px 40px;
+}
+
+.cf-lg-checked-icon, .cf-lg-star-icon {
+    display: inline-block;
+    width: 64px;
+    height: 64px;
+    margin-right: 20px;
+    border-radius: 50%;
+    vertical-align: middle;
+    background-color: #92ca0f;
+    color: #ffffff;
+    font-size: 26px;
+    line-height: 64px;
+    text-align: center;
+}
+
+.cf-lg-star-icon {
+    background-color: #26a9df
+}
+
+.cf-lg-c-icon {
+    background: #92ca0f url("../images/candidates_l.png") no-repeat center center;
+    background-size: 40px 40px;
+}
+
+.cf-lg-rd-icon {
+    background: #26a9df url("../images/reviews_done_l.png") no-repeat center center;
+    background-size: 40px 40px;
+}
+
+.cf-lg-pr-icon {
+    background: #323f48 url("../images/projects_running_l.png") no-repeat center center;
+    background-size: 40px 40px;
+}
+
+.cf-panel-h-icon {
+    font-size: 20px;
+    height: 30px;
+    float: right;
+    line-height: 30px;
+    color: #ffffff;
+    margin: 0 15px;
+}
+
+.cf-panel-h-icon:hover {
+    color: #cccccc;
+}
+
+.list-group-item {
+    padding-left: 0;
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+    padding-right: 0;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.list-group-item:first-child {
+    border-top: none;
+}
+
+.list-group-item:last-child {
+    border-bottom: none;
+}
+
+.dataTables_paginate, .dataTables_length {
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.dataTables_length {
+    padding-top: 0.25em;
+}
+
+.dataTables_length label {
+    padding: 5px 10px;
+}
+
+.dataTables_length select {
+    margin: 0 10px;
+}
+
+.paginate_button {
+    padding: 5px 10px !important;
+    border: none !important;
+}
+
+.paginate_button:hover {
+    background: none !important;
+    background-color: #cccccc !important;
+    color: #333 !important;
+    border: none !important;
+}
+
+.paginate_button.current {
+    background: none !important;
+    border: none !important;
+    font-weight: bold;
+}
+
+.cf-required {
+    color: #26a9df;
+}
+
+.cf-sidebar-counts {
+    font-size: 32px;
+    font-weight: normal;
+}
+
+.cf-blue-btn {
+    color: #ffffff;
+    background-color: #26a9df;
+    text-decoration: none;
+    padding: 5px 15px;
+    display: inline-block;
+    line-height: 30px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.cf-blue-btn:hover {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.cf-white-btn {
+    color: #212529;
+    background-color: #ffffff;
+    text-decoration: none;
+    padding: 5px 15px;
+    display: inline-block;
+    line-height: 24px;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.cf-white-btn:hover {
+    text-decoration: none;
+    color: #212529;
+}
+
+.cf-panel-h-btn {
+    height: 40px;
+    margin: -5px 20px -5px 15px;
+    float: right;
+    line-height: 30px
+}
+
+.cf-panel-h-btn-no-margin {
+    margin-right: 0;
+    margin-left: 0;
+}
+
+.cf-btn-disabled {
+    background-color: #cccccc;
+}
+
+.cf-user-list {
+    padding: 5px 0;
+}
+
+.cf-user-list-item {
+    font-weight: normal;
+}
+
+.cf-remove-user {
+    cursor: pointer;
+    padding: 5px;
+    color: #aaaaaa;
+}
+
+.cf-remove-user:hover {
+    color: #333333;
+}
+
+.cf-page-title {
+    margin-right: 30px;
+    height: 40px;
+    font-size: 20px;
+    line-height: 40px;
+    display: inline-block;
+}
+
+.cf-change-month {
+    float: right;
+}
+
+.cf-change-month .btn-secondary {
+    background: none;
+    border:none;
+    color: #23a9de;
+}
+
+.cf-change-month .dropdown-toggle::after {
+    display: none;
+}
+
+.cf-last-review li {
+    border: none;
+}
+
+.cf-user-role-info {
+    font-size: 14px;
+}
+
+#cf-form-project-info {
+
+}
+
+#cf-form-project-info label, #cf-form-user-info label, .cf-select-label, .cf-inputs-title {
+    color: #23a9de;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+#cf-form-project-info input,
+#cf-form-project-info select,
+#cf-form-project-info textarea,
+#cf-form-user-info input,
+#cf-form-user-info select,
+#cf-form-user-info textarea,
+.cf-select-select,
+.cf-input {
+    border: none;
+    background-color: #ededed;
+    border-radius: 0;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.cf-role-option-c, .cf-role-option-m {
+    background: #92ca0f url("../images/managers_s.png") no-repeat 5px center !important;
+    color: #ffffff;
+    background-size: 16px 16px;
+    padding-left: 32px;
+    font-size: 14px !important;
+    -webkit-appearance: none;
+}
+
+.cf-role-option-m {
+    background: #ef9701 url("../images/candidates_s.png") no-repeat 5px center !important;
+    background-size: 16px 16px;
+}
+
+.modal-content {
+    border-radius: 0;
+}
+
+.modal-header {
+    display: inline-block;
+    border-radius: 0;
+    background-color: #323f48;
+    color: #23a9de;
+}
+
+.modal-footer {
+    display: inline-block;
+    text-align: center;
+}
+
+.cf-checkbox-wrapper {
+    display: inline-block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 0;
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 24px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    vertical-align: middle;
+}
+
+.cf-checkbox-wrapper input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 24px;
+    width: 24px;
+    background-color: #cccccc;
+}
+
+.cf-checkbox-wrapper input:checked ~ .checkmark {
+    background-color: #23a9de;
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.cf-checkbox-wrapper input:checked ~ .checkmark:after {
+    display: block;
+}
+
+.cf-checkbox-wrapper .checkmark:after {
+    left: 8px;
+    top: 3px;
+    width: 8px;
+    height: 14px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.cf-steps-right {
+    color: #aaaaaa;
+}
+
+.cf-steps-right:hover {
+    color: #333333;
+}
+
+.cf-steps-left a {
+    display: inline-block;
+    margin: 15px 0 5px 0;
+    color: #26a9df;
+}
+
+.cf-steps-left a:hover {
+    text-decoration: none;
+}
+
+.cf-panel-h-text {
+    font-size: 14px;
+    line-height: 24px;
+    font-weight: bold;
+    color: #26a9df;
+    margin: 5px 0;
+}
+
+.cf-stars {
+    width: 220px;
+    font-size: 20px;
+    text-align: right;
+    margin-left: 15px;
+    color: #555555;
+}
+
+.cf-star-active {
+    color: #26a9df;
+}
+
+.cf-panel-c-text, .cf-panel-user-info {
+    font-size: 14px;
+    line-height: 24px;
+    font-weight: bold;
+    color: #555555;
+}
+
+.cf-panel-user-info td {
+    padding: 0 10px;
+}
+
+.cf-panel-b-sec-wrapper {
+    font-size: 18px;
+    line-height: 24px;
+}
+
+.cf-panel-b-sec-title {
+    color: #26a9df;
+}
+
+.cf-user-info {
+    margin-bottom: 30px;
+}
+
+.cf-export-logo img {
+    margin-bottom: 30px;
+}
+
+.cf-user-info h5 {
+    font-weight: bold;
+    font-size: 16px;
+    color: #26a9df;
+    margin-bottom: 15px;
+}
+
+.cf-user-info p {
+    font-weight: bold;
+    font-size: 14px;
+    margin: 5px 0;
+}
+
+.cf-export-results {
+    margin-top: 30px;
+}
+
+.cf-export-results h5 {
+    font-weight: bold;
+    font-size: 14px;
+    margin: 30px 0;
+}
+
+.cf-review-rated {
+    text-align: center;
+    color: #92ca0f;
+    display: block;
+    font-size: 18px;
+}
+
+.cf-js-clickable {
+    cursor: pointer;
+}
+
+
+
+@media (min-width: 576px) {
+    .menu-item {
+        line-height: 30px;
+    }
+}
+
+@media (min-width: 768px) {
+
+}
+
+@media (min-width: 992px) {
+    .abs-center-x {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .menu-item {
+        line-height: 50px;
+    }
+
+    .cf-panel-h-title {
+        font-size: 14px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .cf-panel-h-title {
+        font-size: 18px;
+    }
+}
