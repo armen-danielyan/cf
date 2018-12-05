@@ -661,7 +661,12 @@ nav.bg-light {
     cursor: pointer;
 }
 
-
+#cf-export-content label {
+    font-weight: bold;
+    font-size: 16px;
+    color: #26a9df;
+    margin-bottom: 15px;
+}
 
 @media (min-width: 576px) {
     .menu-item {

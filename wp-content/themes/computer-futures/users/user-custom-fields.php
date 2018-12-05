@@ -74,14 +74,6 @@ function addExtraUserProfileFields( $user ) { ?>
 			</td>
 		</tr>
         <tr>
-			<th><label for="_cf_user_company_name">Company name</label></th>
-			<td>
-				<input type="text" name="_cf_user_company_name" id="_cf_user_company_name"
-				       value="<?php echo esc_attr( get_the_author_meta( '_cf_user_company_name', $user->ID ) ); ?>"
-				       class="regular-text"/><br/>
-			</td>
-		</tr>
-        <tr>
             <th><label for="_cf_user_sector">Sector</label></th>
             <td>
 				<?php $sector = esc_attr( get_the_author_meta( '_cf_user_sector', $user->ID ) );
@@ -228,7 +220,6 @@ function saveExtraUserProfileFields( $user_id ) {
 	update_user_meta( $user_id, '_cf_user_zipcode', $_POST['_cf_user_zipcode'] );
 	update_user_meta( $user_id, '_cf_user_city', $_POST['_cf_user_city'] );
 	update_user_meta( $user_id, '_cf_user_sector', $_POST['_cf_user_sector'] );
-	update_user_meta( $user_id, '_cf_user_company_name', $_POST['_cf_user_company_name'] );
 	update_user_meta( $user_id, '_cf_user_primspecialism', $_POST['_cf_user_primspecialism'] );
     update_user_meta( $user_id, '_cf_user_experience', $_POST['_cf_user_experience'] );
     update_user_meta( $user_id, '_cf_user_secspecialism', $_POST['_cf_user_secspecialism'] );

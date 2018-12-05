@@ -158,6 +158,7 @@ require_once 'post_types/Project.php';
 require_once 'post_types/Review.php';
 require_once 'post_types/Question.php';
 require_once 'post_types/Reviews_Done.php';
+require_once 'post_types/Company.php';
 
 /**
  * Users Custom Fields
@@ -646,6 +647,20 @@ function getExportReviewDoneReviews() {
 	endwhile; endif;
 
 	return array_unique($numItemsDataArr);
+}
+
+function getProjects() {
+	$projectArgs = array(
+		'post_type' => 'projects',
+		'posts_per_page' => -1,
+		'meta_query' => array(
+			filterByUserRole('_cf_project_consultant')
+		)
+	);
+
+    $projects = new WP_Query($projectArgs);
+
+	return $projects->get_posts();
 }
 
 function getConsultantProjects() {

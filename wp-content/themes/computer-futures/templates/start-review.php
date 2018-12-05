@@ -179,6 +179,9 @@
                                                 ? explode(',', $_COOKIE['user-ids'])
                                                 : [];
 
+                                            $reviewId = $_COOKIE['review-id'];
+                                            $targetUserRole = get_post_meta((int)$reviewId, '_cf_review_target_user_type', true);
+
 					                        $projectId = (int)$_COOKIE['project-id'];
 					                        $cfUsersRaw = get_post_meta($projectId, '_cf_project_users', true);
 					                        $cfUsers = unserialize($cfUsersRaw);
@@ -189,6 +192,9 @@
 
 						                        $userData = get_userdata( $cfUser );
 						                        $userRole = $userData->roles[0];
+
+						                        if($targetUserRole !== $userRole) continue;
+
 						                        $roleClassName = '';
 						                        if($userRole === 'candidate') {
 							                        $roleClassName = 'cf-sm-c-icon';
@@ -247,7 +253,7 @@
                                                     <select id="_cf_select_review_year" name="_cf_select_review_year" class="form-control cf-select-select">
                                                         <?php $currentYear = date('Y');
                                                         $backYear = $currentYear - 10;
-                                                        for($i = $backYear; $i <= $currentYear; $i++) { ?>
+                                                        for($i = $backYear; $i <= $currentYear + 10; $i++) { ?>
                                                             <option value="<?php echo $i; ?>" <?php selected($year, $i); ?>><?php echo $i; ?></option>
                                                         <?php } ?>
                                                     </select>

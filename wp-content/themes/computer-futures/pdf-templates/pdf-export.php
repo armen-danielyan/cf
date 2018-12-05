@@ -31,6 +31,10 @@ if(isset($_POST['html']) && $_POST['html']) {
             h5, h4, h3 {
                 color: #26a9df;
             }
+            h2 {
+                font-size: 24px;
+                margin-bottom: 20px;
+            }
 
             h3 {
                 font-size: 20px;
@@ -68,6 +72,15 @@ if(isset($_POST['html']) && $_POST['html']) {
             .cf-export-results img {
                 height: 200px;
                 width: auto;
+            }
+            .cf-sector p, .cf-sector h5 {
+                margin-bottom: 10px;
+            }
+            .cf-sector h5 {
+                text-align: center;
+            }
+            .cf-sector p {
+                font-size: 10px;
             }
 		</style>
 	</head>

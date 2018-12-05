@@ -27,11 +27,7 @@
 							$projectMeta['_cf_project_starts'] = $_POST['_cf_project_starts'];
 							$projectMeta['_cf_project_ends'] = $_POST['_cf_project_ends'];
 							$projectMeta['_cf_project_sector'] = $_POST['_cf_project_sector'];
-							$projectMeta['_cf_project_client'] = $_POST['_cf_project_client'];
-							$projectMeta['_cf_project_address'] = $_POST['_cf_project_address'];
-							$projectMeta['_cf_project_N'] = $_POST['_cf_project_N'];
-							$projectMeta['_cf_project_zipcode'] = $_POST['_cf_project_zipcode'];
-							$projectMeta['_cf_project_city'] = $_POST['_cf_project_city'];
+							$projectMeta['_cf_project_company'] = $_POST['_cf_project_company'];
 							$projectMeta['_cf_project_technique'] = $_POST['_cf_project_technique'];
 							$projectMeta['_cf_project_description'] = $_POST['_cf_project_description'];
 							$projectMeta['_cf_project_archive'] = $_POST['_cf_project_archive'];
@@ -40,10 +36,7 @@
 							isset($_POST['_cf_project_starts']) && $_POST['_cf_project_starts'] &&
 							isset($_POST['_cf_project_ends']) && $_POST['_cf_project_ends'] &&
 							isset($_POST['_cf_project_sector']) && $_POST['_cf_project_sector'] &&
-							isset($_POST['_cf_project_client']) && $_POST['_cf_project_client'] &&
-							isset($_POST['_cf_project_address']) && $_POST['_cf_project_address'] &&
-							isset($_POST['_cf_project_zipcode']) && $_POST['_cf_project_zipcode'] &&
-							isset($_POST['_cf_project_city']) && $_POST['_cf_project_city']) {
+							isset($_POST['_cf_project_company']) && $_POST['_cf_project_company']) {
 								wp_update_post( array('ID' => $postId, 'post_title' => $projectName) );
 								foreach ($projectMeta as $key => $value) {
 									$value = implode(',', (array)$value);
@@ -112,38 +105,51 @@
 
 									<div class="col-md-6">
 										<div class="row">
-											<div class="col-md-12">
+                                            <?php $cfCompany = get_post_meta($post->ID, '_cf_project_company', true);
+                                            $cfCompanies = get_posts( array(
+                                                'post_type' => 'companies',
+                                                'posts_per_page' => -1,
+                                                'post_status' => 'publish',
+                                                'orderby'  => 'title',
+                                                'order' => 'ASC',
+                                            ) ); ?>
+                                            <div class="col-md-12">
 												<div class="form-group">
-													<label for="_cf_project_client">Client*</label>
-													<input type="text" class="form-control" name="_cf_project_client" id="_cf_project_client" value="<?php echo get_post_meta($postId, '_cf_project_client', true); ?>" required>
+													<label for="_cf_project_company">Company*</label>
+                                                    <select name="_cf_project_company" class="form-control" id="_cf_project_company">
+                                                        <option></option>
+                                                        <?php foreach($cfCompanies as $s) { ?>
+                                                            <option value="<?php echo $s->ID; ?>" <?php selected( $cfCompany, $s->ID ); ?>><?php echo $s->post_title; ?></option>
+                                                        <?php } ?>
+                                                    </select>
 												</div>
 											</div>
 
 											<div class="col-md-8">
 												<div class="form-group">
-													<label for="_cf_project_address">Address*</label>
-													<input type="text" class="form-control" name="_cf_project_address" id="_cf_project_address" value="<?php echo get_post_meta($postId, '_cf_project_address', true); ?>" required>
+													<label for="_cf_company_address">Address</label>
+													<input type="text" class="form-control" id="_cf_company_address" value="" readonly>
 												</div>
 											</div>
 
 											<div class="col-md-4">
 												<div class="form-group">
-													<label for="_cf_project_N">No. + ext.</label>
-													<input type="text" class="form-control" name="_cf_project_N"  id="_cf_project_N" value="<?php echo get_post_meta($postId, '_cf_project_N', true); ?>">
+													<label for="_cf_company_N">No. + ext.</label>
+													<input type="text" class="form-control" id="_cf_company_N" value="" readonly>
 												</div>
 											</div>
 
 											<div class="col-md-4">
 												<div class="form-group">
-													<label for="_cf_project_zipcode">Zip code*</label>
-													<input type="text" class="form-control" name="_cf_project_zipcode" id="_cf_project_zipcode" value="<?php echo get_post_meta($postId, '_cf_project_zipcode', true); ?>" required>
+													<label for="_cf_company_zipcode">Zip code</label>
+													<input type="text" class="form-control" id="_cf_company_zipcode" value="" readonly>
 												</div>
 											</div>
 
 											<div class="col-md-8">
 												<div class="form-group">
-													<label for="_cf_project_city">City*</label>
-													<input type="text" class="form-control" name="_cf_project_city" id="_cf_project_city" value="<?php echo get_post_meta($postId, '_cf_project_city', true); ?>" required>
+													<label for="_cf_company_city">City</label>
+													<input type="text" class="form-control" id="_cf_company_city" value="" readonly>
 												</div>
 											</div>
 										</div>
@@ -188,6 +194,37 @@
             $(function() {
                 $( ".cf-date-picker" ).datepicker({ dateFormat: 'yy-mm-dd' });
             });
+
+            getCompanyFields($("#_cf_project_company").val());
+
+            $("#_cf_project_company").on("change", function() {
+                getCompanyFields($(this).val());
+            });
+
+            function getCompanyFields(companyId) {
+                $.ajax({
+                    url: "<?php echo admin_url('admin-ajax.php'); ?>",
+                    type: 'POST',
+                    data: {
+                        action: 'company_fields',
+                        company_id: companyId
+                    },
+                    success: function(data) {
+                        var parsedData = JSON.parse(data);
+                        if(parsedData.status) {
+                            $("#_cf_company_city").val(parsedData.data.city);
+                            $("#_cf_company_N").val(parsedData.data.n);
+                            $("#_cf_company_address").val(parsedData.data.address);
+                            $("#_cf_company_zipcode").val(parsedData.data.zipcode);
+                        } else {
+                            $("#_cf_company_city").val("");
+                            $("#_cf_company_N").val("");
+                            $("#_cf_company_address").val("");
+                            $("#_cf_company_zipcode").val("");
+                        }
+                    }
+                });
+            }
         });
     </script>
 

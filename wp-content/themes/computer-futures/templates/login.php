@@ -130,6 +130,24 @@ setcookie( TEST_COOKIE, 'WP Cookie check', 0, COOKIEPATH, COOKIE_DOMAIN, $secure
             $.cookie("export-year-to", '', {path: '/'});
             $.cookie("export-review-id", '', {path: '/'});
             $.cookie("export-user-id", '', {path: '/'});
+
+            $.cookie("export2-compare-type", '', {path: '/'});
+            $.cookie("export2-compare-user-id", '', {path: '/'});
+            $.cookie("export2-period-from", '', {path: '/'});
+            $.cookie("export2-period-to", '', {path: '/'});
+            $.cookie("export2-year-from", '', {path: '/'});
+            $.cookie("export2-year-to", '', {path: '/'});
+            $.cookie("export2-review-id", '', {path: '/'});
+            $.cookie("export2-user-id", '', {path: '/'});
+
+            $.cookie("export3-compare-type", '', {path: '/'});
+            $.cookie("export3-compare-user-id", '', {path: '/'});
+            $.cookie("export3-period-from", '', {path: '/'});
+            $.cookie("export3-period-to", '', {path: '/'});
+            $.cookie("export3-year-from", '', {path: '/'});
+            $.cookie("export3-year-to", '', {path: '/'});
+            $.cookie("export3-review-id", '', {path: '/'});
+            $.cookie("export3-user-id", '', {path: '/'});
         })
     </script>
 

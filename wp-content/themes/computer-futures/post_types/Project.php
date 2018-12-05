@@ -82,9 +82,20 @@ function cfProjectData() {
 		<?php } ?>
 	</select>
 
-	<?php $cfClient = get_post_meta($post->ID, '_cf_project_client', true); ?>
-	<label for="_cf_project_client">Client</label>
-	<input id="_cf_project_client" type="text" name="_cf_project_client" value="<?php echo $cfClient; ?>" class="widefat" />
+    <?php $cfCompany = get_post_meta($post->ID, '_cf_project_company', true);
+    $cfCompanies = get_posts( array(
+        'post_type' => 'companies',
+        'posts_per_page' => -1,
+        'post_status' => 'publish',
+        'orderby'  => 'title',
+        'order' => 'ASC',
+    ) ); ?>
+    <label for="_cf_project_company">Company</label>
+    <select name="_cf_project_company" class="widefat" id="_cf_project_company">
+        <?php foreach($cfCompanies as $s) { ?>
+            <option value="<?php echo $s->ID; ?>" <?php selected( $cfCompany, $s->ID ); ?>><?php echo $s->post_title; ?></option>
+        <?php } ?>
+    </select>
 
 	<?php $cfAddress = get_post_meta($post->ID, '_cf_project_address', true); ?>
 	<label for="_cf_project_address">Address</label>
@@ -211,7 +222,7 @@ function saveProjectMetaboxes($post_id, $post) {
 	$projectsMeta['_cf_project_starts'] = $_POST['_cf_project_starts'];
     $projectsMeta['_cf_project_ends'] = $_POST['_cf_project_ends'];
     $projectsMeta['_cf_project_sector'] = $_POST['_cf_project_sector'];
-    $projectsMeta['_cf_project_client'] = $_POST['_cf_project_client'];
+    $projectsMeta['_cf_project_company'] = $_POST['_cf_project_company'];
     $projectsMeta['_cf_project_address'] = $_POST['_cf_project_address'];
     $projectsMeta['_cf_project_N'] = $_POST['_cf_project_N'];
     $projectsMeta['_cf_project_zipcode'] = $_POST['_cf_project_zipcode'];

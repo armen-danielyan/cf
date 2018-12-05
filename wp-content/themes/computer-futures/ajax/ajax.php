@@ -109,3 +109,30 @@ function createReviewDone() {
 
 	wp_die();
 }
+
+/**
+ * Get Company fields
+ */
+add_action( 'wp_ajax_company_fields', 'companyFields' );
+add_action( 'wp_ajax_nopriv_company_fields', 'companyFields' );
+function companyFields() {
+    $companyId = ( isset( $_POST['company_id'] ) && $_POST['company_id'] ) ? $_POST['company_id'] : false;
+
+    if ( $companyId ) {
+        $companyAddress = get_post_meta($companyId, '_cf_company_address', true);
+        $companyN = get_post_meta($companyId, '_cf_company_N', true);
+        $companyZip = get_post_meta($companyId, '_cf_company_zipcode', true);
+        $companyCity = get_post_meta($companyId, '_cf_company_city', true);
+
+        echo json_encode( array( 'status' => 1, 'data' => array(
+            'address' => $companyAddress,
+            'n' => $companyN,
+            'zipcode' => $companyZip,
+            'city' => $companyCity
+        ), 'statusMsg' => 'Company fields' ) );
+    } else {
+        echo json_encode( array( 'status' => 0, 'statusMsg' => 'Project id missed' ) );
+    }
+
+    wp_die();
+}

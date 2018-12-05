@@ -147,7 +147,7 @@
                 <div class="row">
                     <div class="col-md-12" style="text-align: center">
                         <h6 class="m-3"><?php echo $themeOptions['cf_your_total_footer']; ?></h6>
-                        <a href="mailto:d.mulder@computerfutures.nl?subject=Feedback ComputerFutures Reviews" class="cf-blue-btn text-center">PROVIDE FEEDBACK</a>
+                        <a href="<?php if($themeOptions['cf_feedback_email']) echo 'mailto:' . $themeOptions['cf_feedback_email'] . '?subject=Feedback ComputerFutures Reviews'; ?>" class="cf-blue-btn text-center">PROVIDE FEEDBACK</a>
                     </div>
                 </div>
 			</div>

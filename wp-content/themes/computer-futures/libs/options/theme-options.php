@@ -44,6 +44,12 @@
             } else {
                 unset( $options['cf_your_total_footer'] );
             }
+
+            if ( ! empty( $options['cf_feedback_email'] ) ) {
+                $options['cf_feedback_email'] = sanitize_text_field( $options['cf_feedback_email'] );
+            } else {
+                unset( $options['cf_feedback_email'] );
+            }
         }
 
         return $options;
@@ -66,10 +72,19 @@
                     </tr>
 
                     <tr valign="top">
-                        <th scope="row">Your total text</th>
+                        <th scope="row">Provide feedback title</th>
                         <td>
                             <?php $value = self::getThemeOption( 'cf_your_total_footer' ); ?>
                             <input style="width: 50%;" type="text" name="theme_options[cf_your_total_footer]"
+                                   value="<?php echo esc_attr( $value ); ?>">
+                        </td>
+                    </tr>
+
+                    <tr valign="top">
+                        <th scope="row">Provide feedback email</th>
+                        <td>
+                            <?php $value = self::getThemeOption( 'cf_feedback_email' ); ?>
+                            <input style="width: 50%;" type="email" name="theme_options[cf_feedback_email]"
                                    value="<?php echo esc_attr( $value ); ?>">
                         </td>
                     </tr>

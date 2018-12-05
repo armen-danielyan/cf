@@ -37,7 +37,6 @@
 
                                 $_cf_user_first_name = (isset($_POST['_cf_user_first_name']) && $_POST['_cf_user_first_name']) ? sanitize_text_field($_POST['_cf_user_first_name']) : '';
                                 $_cf_user_last_name = (isset($_POST['_cf_user_last_name']) && $_POST['_cf_user_last_name']) ? sanitize_text_field($_POST['_cf_user_last_name']) : '';
-                                $_cf_user_company_name = (isset($_POST['_cf_user_company_name']) && $_POST['_cf_user_company_name']) ? sanitize_text_field($_POST['_cf_user_company_name']) : '';
                                 $_cf_user_address = (isset($_POST['_cf_user_address']) && $_POST['_cf_user_address']) ? sanitize_text_field($_POST['_cf_user_address']) : '';
                                 $_cf_user_sector = (isset($_POST['_cf_user_sector']) && $_POST['_cf_user_sector']) ? sanitize_text_field($_POST['_cf_user_sector']) : '';
                                 $_cf_user_email = (isset($_POST['_cf_user_email']) && $_POST['_cf_user_email'] && is_email($_POST['_cf_user_email'])) ? sanitize_text_field($_POST['_cf_user_email']) : '';
@@ -50,7 +49,7 @@
                                 $_cf_user_middle_name = (isset($_POST['_cf_user_middle_name']) && $_POST['_cf_user_middle_name']) ? sanitize_text_field($_POST['_cf_user_middle_name']) : '';
 
 
-                                if( $_cf_user_first_name && $_cf_user_last_name && $_cf_user_company_name &&
+                                if( $_cf_user_first_name && $_cf_user_last_name &&
                                     $_cf_user_address && $_cf_user_sector && $_cf_user_email &&
                                     $_cf_user_zipcode && $_cf_user_city && $_cf_user_project_name ) {
 
@@ -82,7 +81,6 @@
                                             update_user_meta( $userId, '_cf_user_zipcode', $_cf_user_zipcode );
                                             update_user_meta( $userId, '_cf_user_city', $_cf_user_city );
                                             update_user_meta( $userId, '_cf_user_sector', $_cf_user_sector );
-                                            update_user_meta( $userId, '_cf_user_company_name', $_cf_user_company_name );
                                             update_user_meta( $userId, '_cf_user_consultant', get_current_user_id() );
 
                                             $projectId = $_cf_user_project_name;
@@ -118,6 +116,7 @@
                                 $_cf_user_primspecialism = (isset($_POST['_cf_user_primspecialism']) && $_POST['_cf_user_primspecialism']) ? sanitize_text_field($_POST['_cf_user_primspecialism']) : '';
                                 $_cf_user_secspecialism = (isset($_POST['_cf_user_secspecialism']) && $_POST['_cf_user_secspecialism']) ? sanitize_text_field($_POST['_cf_user_secspecialism']) : '';
                                 $_cf_user_experience = (isset($_POST['_cf_user_experience']) && $_POST['_cf_user_experience']) ? sanitize_text_field($_POST['_cf_user_experience']) : '';
+                                $_cf_user_secexperience = (isset($_POST['_cf_user_secexperience']) && $_POST['_cf_user_secexperience']) ? sanitize_text_field($_POST['_cf_user_secexperience']) : '';
                                 $_cf_user_jobtitle = (isset($_POST['_cf_user_jobtitle']) && $_POST['_cf_user_jobtitle']) ? sanitize_text_field($_POST['_cf_user_jobtitle']) : '';
                                 $_cf_user_joblocation = (isset($_POST['_cf_user_joblocation']) && $_POST['_cf_user_joblocation']) ? sanitize_text_field($_POST['_cf_user_joblocation']) : '';
                                 $_cf_user_curr_experience = (isset($_POST['_cf_user_curr_experience']) && $_POST['_cf_user_curr_experience']) ? sanitize_text_field($_POST['_cf_user_curr_experience']) : '';
@@ -353,6 +352,19 @@
                                                             </select>
                                                         </div>
                                                     </div>
+
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label for="_cf_user_secexperience">Experience*</label>
+                                                            <select id="_cf_user_secexperience" name="_cf_user_secexperience" class="form-control" required>
+                                                                <option <?php selected($_cf_user_secexperience, ''); ?> disabled>Choose an Experience</option>
+                                                                <?php $experiences = getCustomItems('experiences');
+                                                                foreach($experiences as $s) { ?>
+                                                                    <option value="<?php echo $s; ?>" <?php selected($_cf_user_secexperience, $s); ?>><?php echo $s; ?></option>
+                                                                <?php } ?>
+                                                            </select>
+                                                        </div>
+                                                    </div>
                                                 </div>
 
                                                 <hr>
@@ -443,13 +455,6 @@
                                                         <div class="form-group">
                                                             <label for="_cf_user_last_name">Last name*</label>
                                                             <input type="text" class="form-control" name="_cf_user_last_name" id="_cf_user_last_name" value="<?php echo $_cf_user_last_name; ?>" required>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="col-md-12">
-                                                        <div class="form-group">
-                                                            <label for="_cf_user_company_name">Company name*</label>
-                                                            <input type="text" class="form-control" name="_cf_user_company_name" id="_cf_user_company_name" value="<?php echo $_cf_user_company_name; ?>" required>
                                                         </div>
                                                     </div>
 

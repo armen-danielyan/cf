@@ -334,6 +334,14 @@
                                                         <input type="text" class="form-control" id="_cf_user_city" value="<?php echo get_user_meta($userId, '_cf_user_city', true); ?>" readonly>
                                                     </div>
                                                 </div>
+
+                                                <div class="col-md-12">
+                                                    <div class="form-group">
+                                                        <?php $projectId = get_user_meta($userId, '_cf_user_project_name', true) ?>
+                                                        <label for="_cf_user_project_name">Project Name</label>
+                                                        <input type="text" class="form-control" id="_cf_user_project_name" value="<?php echo get_the_title($projectId); ?>" readonly>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>

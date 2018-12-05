@@ -34,7 +34,6 @@
                             if($userRole == 'project-manager') {
                                 $_cf_user_first_name = (isset($_POST['_cf_user_first_name']) && $_POST['_cf_user_first_name']) ? sanitize_text_field($_POST['_cf_user_first_name']) : '';
                                 $_cf_user_last_name = (isset($_POST['_cf_user_last_name']) && $_POST['_cf_user_last_name']) ? sanitize_text_field($_POST['_cf_user_last_name']) : '';
-                                $_cf_user_company_name = (isset($_POST['_cf_user_company_name']) && $_POST['_cf_user_company_name']) ? sanitize_text_field($_POST['_cf_user_company_name']) : '';
                                 $_cf_user_address = (isset($_POST['_cf_user_address']) && $_POST['_cf_user_address']) ? sanitize_text_field($_POST['_cf_user_address']) : '';
                                 $_cf_user_sector = (isset($_POST['_cf_user_sector']) && $_POST['_cf_user_sector']) ? sanitize_text_field($_POST['_cf_user_sector']) : '';
                                 $_cf_user_zipcode = (isset($_POST['_cf_user_zipcode']) && $_POST['_cf_user_zipcode']) ? sanitize_text_field($_POST['_cf_user_zipcode']) : '';
@@ -45,7 +44,7 @@
                                 $_cf_user_N = (isset($_POST['_cf_user_N']) && $_POST['_cf_user_N']) ? sanitize_text_field($_POST['_cf_user_N']) : '';
                                 $_cf_user_middle_name = (isset($_POST['_cf_user_middle_name']) && $_POST['_cf_user_middle_name']) ? sanitize_text_field($_POST['_cf_user_middle_name']) : '';
 
-                                if($_cf_user_first_name && $_cf_user_last_name && $_cf_user_company_name &&
+                                if($_cf_user_first_name && $_cf_user_last_name &&
                                     $_cf_user_address && $_cf_user_sector &&
                                     $_cf_user_zipcode && $_cf_user_city && $_cf_user_project_name) {
 
@@ -68,7 +67,6 @@
                                         update_user_meta( $userId, '_cf_user_zipcode', $_cf_user_zipcode );
                                         update_user_meta( $userId, '_cf_user_city', $_cf_user_city );
                                         update_user_meta( $userId, '_cf_user_sector', $_cf_user_sector );
-                                        update_user_meta( $userId, '_cf_user_company_name', $_cf_user_company_name );
                                         update_user_meta( $userId, '_cf_user_project_name', $_cf_user_project_name );
                                         update_user_meta( $userId, '_cf_user_archive', $_POST['_cf_user_archive'] );
                                     }
@@ -383,13 +381,6 @@
                                                     <div class="form-group">
                                                         <label for="_cf_user_last_name">Last name*</label>
                                                         <input type="text" class="form-control" name="_cf_user_last_name" id="_cf_user_last_name" value="<?php echo $userData->last_name; ?>" required>
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-md-12">
-                                                    <div class="form-group">
-                                                        <label for="_cf_user_company_name">Company name*</label>
-                                                        <input type="text" class="form-control" name="_cf_user_company_name" id="_cf_user_company_name" value="<?php echo get_user_meta($userId, '_cf_user_company_name', true); ?>" required>
                                                     </div>
                                                 </div>
 
